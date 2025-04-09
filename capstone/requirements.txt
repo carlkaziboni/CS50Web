@@ -1,0 +1,7 @@
+Django
+django_vite_plugin
+crispy-bootstrap5
+django-crispy-forms
+djangorestframework
+python-dotenv
+psycopg[binary]

@@ -1,0 +1,23 @@
+{% extends "theram/layout.html" %}
+
+{% block head %}{% endblock %}
+
+{% block title %}Delete{% endblock %}
+
+{% block body %}
+
+<ul class="list-group">
+    {% for paper in papers %}
+    
+    <li class="list-group-item">
+    <a href="{{ paper.paper }}" target="{{ paper.paper }}">{{ paper.paper.name | slice:"7:" }}</a>
+    {% if user.is_authenticated and not paper.main %}
+    <form action="{% url 'delete' %}" method="post" >
+        {% csrf_token %}
+        <input value="{{ paper.pk }}" name="main" hidden>
+        <button type="submit" class="btn btn-primary">Delete</button>
+    </form>
+    {% endif %}
+    </li>
+    {% endfor %}
+{% endblock %}

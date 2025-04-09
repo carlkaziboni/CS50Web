@@ -1,0 +1,19 @@
+{% extends "theram/layout.html" %}
+
+{% block head %}
+
+{% load vite %}
+{% vite %}
+{% vite 'theram/login.css' %}
+
+{% endblock %}
+
+
+{% block title %}Login{% endblock %}
+
+{% block body %}
+
+{% load crispy_forms_tags %}
+{% crispy login_form login_form.helper %}
+
+{% endblock %}

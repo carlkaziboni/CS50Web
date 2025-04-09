@@ -1,0 +1,61 @@
+{% extends 'network/layout.html' %}
+
+{% block body %}
+
+<h2><a href="/profile/{{ userprofile.username}}">{{ userprofile.username }}</a></h2>
+
+{% if not request.user == userprofile %}
+    {% if not request.user in userprofile.followers.all %}
+        <a href onclick="follow(event, '{{ userprofile.id }}')" id="follow{{ userprofile.id }}">Follow</a>
+    {% else %}
+        <a href onclick="unfollow(event, '{{ userprofile.id }}')" id="unfollow{{ userprofile.id }}">Unfollow</a>
+    {% endif %} 
+{% endif %}
+    Followers: 
+        <span id="followers{{ userprofile.id }}">{{ userprofile.followers.all|length }}</span>
+
+{% for post in posts %}
+<div id="allposts">
+<h3><a href="/profile/{{ post.post_user.username }}">{{ post.post_user.username }}</a></h3>
+{% if request.user == post.post_user %}
+    <a href id="editshow" onclick="formedit(event, '{{post.id}}')" >Edit</a>
+    <div style="display: none;" id="editform{{ post.id }}">
+        <form>
+            <input value="{{ post.id }}" hidden id="editid{{ post.id }}">
+            <textarea name="editcontent{{ post.id }}" id="editcontent{{ post.id }}" required>{{ post.post_content}}</textarea>
+            <button type="submit" class="btn btn-primary" id="postedit" onclick="sendedit(event, '{{ post.id }}')">Post</button>
+        </form>
+    </div>
+
+    <br>
+{% endif %}
+    <span id="content{{ post.id }}">{{ post.post_content }}</span> <br>
+    {{ post.post_time }} <br>
+    {% if not request.user == post.post_user %}
+        {% if not request.user in post.post_likes.all %}
+            <a href onclick="likepost(event, '{{ post.id }}')" id="likepost{{ post.id }}">Like</a>
+        {% else %}
+            <a href onclick="unlikepost(event, '{{ post.id }}')" id="unlikepost{{ post.id }}">Unlike</a>
+        {% endif %}
+    {% else %}
+    Likes: 
+    {% endif %}
+        <span id="length{{ post.id }}">{{ post.post_likes.all|length }}</span>
+</div>
+{% endfor %}
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        {% if posts.has_previous %}
+      <li class="page-item"><a class="page-link" href="?page={{ posts.previous_page_number }}">Previous</a></li>
+        {% endif %}
+        {% for pagenum in posts.paginator.page_range %}
+      <li class="page-item"><a class="page-link" href="?page={{ pagenum }}">{{ pagenum }}</a></li>
+        {% endfor %}
+      {% if posts.has_next %}
+      <li class="page-item"><a class="page-link" href="?page={{ posts.next_page_number }}">Next</a></li>
+      {% endif %}
+    </ul>
+  </nav>
+
+{% endblock %}

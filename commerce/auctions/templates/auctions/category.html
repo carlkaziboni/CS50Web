@@ -1,0 +1,22 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>{{heading}} Category</h2>
+
+    <div class="box">
+        {% for listing in listings %}
+        <div>
+            <a href="{% url 'viewlisting' listing.id %}">
+            <img src="{{ listing.image }}" height="200" width="200">
+            </a>
+        </div>
+        <div>
+            <a href="{% url 'viewlisting' listing.id %}">
+            <h5>{{ listing.name }}</h5>
+            <p>Price: ${{ listing.price }}</p>
+            <p>Description: {{listing.description}}</p>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

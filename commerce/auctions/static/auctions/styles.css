@@ -1,0 +1,16 @@
+body{
+    padding: 10px;
+}
+
+.box {
+    display: grid;
+    width: 540px;
+    grid-template-columns: 200px 200px;
+    align-items: start;
+    gap: 10px 3em;
+  }
+  
+
+  .box :first-child {
+    align-self: center;
+  }

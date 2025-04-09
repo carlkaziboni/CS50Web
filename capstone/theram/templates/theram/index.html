@@ -1,0 +1,18 @@
+{% extends 'theram/layout.html' %}
+{% load vite %}
+
+
+{% block head %}
+{% vite %}
+{% vite 'theram/index.css' 'theram/index.jsx' %}
+{% endblock %}
+
+
+{% block title %}Home{% endblock %}
+
+
+{% block body %}
+
+<div id="latest"></div>
+
+{% endblock %}

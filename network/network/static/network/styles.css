@@ -1,0 +1,42 @@
+body{
+    padding: 10px;
+}
+
+#newpost {
+    display: grid;
+    border: 1px solid;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+textarea {
+    border: 1px solid;
+    position: relative;
+    left: 50%;
+    translate: -50%;
+    width: 80em;
+    height: 5em;
+    resize: none;
+}
+
+button {
+    position: relative;
+    left: 50%;
+    translate: -50%;
+    margin-bottom: 5px;
+}
+
+h4 {
+    position: relative;
+    left: 35px;
+}
+
+#allposts{
+    margin-bottom: 10px;
+    border: 1px solid;
+    padding-inline: 10px;
+}
+
+p {
+    margin-bottom: 0;
+}

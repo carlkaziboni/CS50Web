@@ -1,0 +1,27 @@
+{% extends "theram/layout.html" %}
+
+{% block head %}
+
+{% load vite %}
+{% vite %}
+{% vite "theram/accounts.jsx" %}
+
+{% endblock %}
+
+{% block title %}Accounts{% endblock %}
+
+{% block body %}
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">User</th>
+            <th scope="col">Password</th>
+            <th scope="col">Accounts</th>
+            <th><a href="{% url 'newuser' %}">New Users</a></th>
+        </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+</table>
+
+{% endblock %}

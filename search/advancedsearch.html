@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Advanced Search</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <style>
+            .input
+            {
+                position: absolute;
+                left: 20%;
+            }
+        </style>
+    </head>
+    <body>
+        <a href="C:\Users\Carl Kaziboni.Carl\Desktop\CS50 Web Dev\search\index.html" style="position: relative; left: 95%;">Index</a>
+        <div>
+            <p style="position: relative; left: 2%;">Find pages with...</p>
+            <form action="https://www.google.com/search" method="GET" name="f">
+                <label for="as_q" style="position: relative; left: 2%; top: 5%;">all these words:</label>
+                <input type="text" name="as_q" id="as_q" class="input" size="100px"> <br>
+                <label for="as_epq" style="position: relative; left: 2%; margin-top: 20px;">this exact word or phrase:</label>
+                <input type="text" name="as_epq" id="as_epq" class="input" style="margin-top: 20px;" size="100px"> <br>
+                <label for="as_oq" style="position: relative; left: 2%; margin-top: 20px;">any of these words:</label>
+                <input type="text" name="as_oq" id="as_oq" class="input" style="margin-top: 20px;" size="100px"> <br>
+                <label for="as_eq" style="position: relative; left: 2%; margin-top: 20px;">none of these words:</label>
+                <input type="text" name="as_eq" id="as_eq" class="input" style="margin-top: 20px;" size="100px"> <br>
+                <label for="as_nlo" style="position: relative; left: 2%; margin-top: 20px;">numbers ranging from:</label>
+                <input type="text" name="as_nlo" id="as_nlo" class="input" style="margin-top: 20px;" size="40px">
+                <label for="as_nhi" style="left: 46%; position: absolute; margin-top: 20px;">to</label>
+                <input type="text" name="as_nhi" id="as_nhi" style="position: relative; left: 36.5%; top: 3px;" size="47"> <br>
+                <input type="submit" class="btn btn-primary" value="Advanced Search" style="position: relative; left: 66.3%; transform: translate(0, +25%); border-radius: 0;">
+            </form>
+        </div>
+    </body>
+</html>
